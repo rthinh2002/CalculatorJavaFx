@@ -1,24 +1,23 @@
 package com.company;
-
-import javafx.event.ActionEvent;
+import java.math.BigDecimal;
 
 public class Calculation {
-    double calculate(long num1, long num2, String operator){
+    BigDecimal calculate(BigDecimal num1, BigDecimal num2, String operator){
         switch (operator){
             case "+":
-                return (double) num1 + num2;
+                return num1.add(num2);
             case "-":
-                return (double)num1 - num2;
+                return num1.subtract(num2);
             case "/":
-                if(num2 == 0){
-                    return 0;
+                if(num2.compareTo(BigDecimal.ZERO) == 0){
+                    return new BigDecimal(0.0);
                 } else {
-                    return (double)num1 / num2;
+                    num1.divide(num2);
                 }
             case "*":
-                return (double)num1 * num2;
+                num1.multiply(num2);
             default:
-                return 0;
+                return new BigDecimal(0.0);
         }
     }
 }

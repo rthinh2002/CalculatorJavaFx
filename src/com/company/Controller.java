@@ -4,12 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Controller {
     @FXML
     private Label result;
-    private long num1 = 0;
-    private String operator = "";
+    private BigDecimal num1;
+    private String operator = "", percentage = "";
     private boolean start = true;
     private Calculation cal = new Calculation();
 
@@ -19,31 +21,79 @@ public class Controller {
             result.setText("");
             start = false;
         }
+
+        if(result.getText().contains("%")){ //stop the user from entering any new number after the %
+            screenReset();
+            return;
+        }
+
+        if(((Button) event.getSource()).getText().equals("+/-")){
+            result.setText("-");
+            return;
+        }
+
         String value = ((Button) event.getSource()).getText(); //getting the number
         result.setText(result.getText()+value); //set the label to display the number
     }
 
     @FXML
+    public void handlePercentageSign(ActionEvent event){
+        if(result.getText().contains("%")){ //stop the user from entering any new number after the %
+            screenReset();
+            return;
+        }
+
+        percentage = result.getText();
+        result.setText((result.getText())+((Button) event.getSource()).getText());
+
+    }
+
+    @FXML
     public void processOperators(ActionEvent event){ //process the operator
         String value = ((Button) event.getSource()).getText();
-        if(!value.equals("=")){
-            if(!operator.isEmpty()){
+        BigDecimal percentageValue = new BigDecimal(0.01);
+        if(!value.equals("=")){ //condition where it is not "=", processing the first number
+            if(!operator.isEmpty()){ //check if there is previous operator exist
                 return;
             } else {
                 operator = value;
-                num1 = Long.parseLong(result.getText());
-                result.setText("");
-            }
+                if(result.getText().contains("%")){ //handling the percentage operator
+                    num1 = new BigDecimal(percentage).multiply(percentageValue);
+                    percentage = "";
+                    result.setText("");
+                } else {
+                    num1 = new BigDecimal(result.getText());
+                    result.setText("");
+                }
+            } //end else
         } else {
             if(operator.isEmpty()){
                 return;
             } else {
-                long num2 = Long.parseLong(result.getText());
-                double output = cal.calculate(num1, num2, operator);
-                result.setText(String.valueOf(output));
-                operator = ""; //reset the operator
-                start = true; //reset the start to true to continue next function
+                BigDecimal num2 = new BigDecimal(0.0); //general variable for BigDecimal data type
+
+                if(result.getText().contains("%")){
+                    num2 = new BigDecimal(percentage).multiply(percentageValue);
+                    percentage = "";
+                    BigDecimal output = (cal.calculate(num1, num2, operator)).setScale(2, RoundingMode.HALF_UP).stripTrailingZeros();
+                    result.setText(String.valueOf(output));
+                } else {
+                    num2 = new BigDecimal(result.getText());
+                    BigDecimal output = (cal.calculate(num1, num2, operator)).setScale(2, RoundingMode.HALF_UP).stripTrailingZeros();
+                    System.out.println(output);
+                    result.setText(String.valueOf(output));
+                }
+
+                operator = "";
+                start = true;
             }
-        }
+        } //end else
+    }
+
+    @FXML
+    public void screenReset(){
+        result.setText("0");
+        start = true;
     }
 }
+

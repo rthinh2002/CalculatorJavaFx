@@ -5,28 +5,30 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="331.0" prefWidth="315.0" style="-fx-background-color: #A7A7A7; -fx-border-color: #989898; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller">
+<VBox prefHeight="316.0" prefWidth="289.0" style="-fx-background-color: #A7A7A7; -fx-border-color: #989898; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller">
    <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0">
+      <StackPane prefHeight="63.0" prefWidth="240.0">
          <children>
-            <Label fx:id="result" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="73.0" prefWidth="276.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #6D6C6C; -fx-border-width: 5; -fx-font-weight: bold; -fx-font-family: Courier New; -fx-font-size: 25;" textFill="#222020">
+            <Label fx:id="result" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="63.0" prefWidth="240.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #6D6C6C; -fx-border-width: 5; -fx-font-weight: bold; -fx-font-family: Courier New; -fx-font-size: 25;" text="0" textFill="#222020">
                <font>
                   <Font name="Arial Bold" size="23.0" />
                </font>
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
             </Label>
          </children>
       </StackPane>
       <HBox alignment="CENTER">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" style="-fx-border-radius: 10;" text="7" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#screenReset" prefWidth="60.0" style="-fx-border-radius: 10;" text="A/C" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
                </font>
@@ -37,7 +39,54 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Region prefHeight="100.0" prefWidth="12.0" />
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#handlePercentageSign" prefWidth="60.0" text="\%" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="62.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="+/-" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="114.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="." textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="160.0">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="7" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
             <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="8" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
@@ -49,7 +98,6 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Region layoutX="311.0" layoutY="10.0" prefHeight="100.0" prefWidth="12.0" />
             <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="62.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="9" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
@@ -61,8 +109,7 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Region layoutX="147.0" layoutY="10.0" prefHeight="100.0" prefWidth="12.0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="114.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processOperators" prefWidth="60.0" text="/" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="114.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processOperators" prefWidth="60.0" text="+" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
                </font>
@@ -88,7 +135,6 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Region prefHeight="100.0" prefWidth="12.0" />
             <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="5" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
@@ -100,7 +146,6 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Region layoutX="311.0" layoutY="10.0" prefHeight="100.0" prefWidth="12.0" />
             <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="62.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="6" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
@@ -112,58 +157,6 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Region layoutX="147.0" layoutY="10.0" prefHeight="100.0" prefWidth="12.0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="114.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processOperators" prefWidth="60.0" text="*" textAlignment="CENTER" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="160.0">
-         <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="1" textAlignment="CENTER" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-            <Region prefHeight="100.0" prefWidth="12.0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="2" textAlignment="CENTER" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-            <Region layoutX="311.0" layoutY="10.0" prefHeight="100.0" prefWidth="12.0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="62.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="3" textAlignment="CENTER" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-            <Region layoutX="147.0" layoutY="10.0" prefHeight="100.0" prefWidth="12.0" />
             <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="114.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processOperators" prefWidth="60.0" text="-" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
@@ -177,9 +170,9 @@
             </Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="360.0" prefHeight="115.0" prefWidth="441.0">
+      <HBox alignment="CENTER" layoutX="20.0" layoutY="168.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="132.0" text="0" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" style="-fx-border-radius: 10;" text="1" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
                </font>
@@ -190,7 +183,54 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Region prefHeight="57.0" prefWidth="12.0" />
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="2" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="62.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="60.0" text="3" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="114.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processOperators" prefWidth="60.0" text="*" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="360.0">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processNumbers" prefWidth="120.0" text="0" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
             <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processOperators" prefWidth="60.0" text="=" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
@@ -202,8 +242,7 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Region prefHeight="57.0" prefWidth="12.0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="114.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processOperators" prefWidth="60.0" text="+" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="114.0" layoutY="10.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#processOperators" prefWidth="60.0" text="/" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="19.0" />
                </font>
@@ -216,8 +255,11 @@
             </Button>
          </children>
          <VBox.margin>
-            <Insets top="-10.0" />
+            <Insets />
          </VBox.margin>
       </HBox>
    </children>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
 </VBox>
